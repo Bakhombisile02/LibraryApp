@@ -46,7 +46,7 @@ Make your changes and submit a pull request for review.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - go to https://opensource.org/license/mit/ or see license for details.
 
 
 
