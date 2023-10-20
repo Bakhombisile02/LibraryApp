@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 
 namespace LibraryApp
 {
-    internal class ThemeColor
+    /// <summary>
+    /// This a portion of this code is based on a tutorial by [RJ Code Advance EN]
+    ///The original code can be found at[https://www.youtube.com/watch?v=BtOEztT1Qzk&t=888s]
+    ///Modifications were made to the code like changing the colour values and adjusting the brightness of a color
+    /// </summary>
+    public static class ThemeColor
     {
-        /*
-        * This a portion of this code is based on a tutorial by [RJ Code Advance EN]
-        * The original code can be found at [https://www.youtube.com/watch?v=BtOEztT1Qzk&t=888s]
-        * Modifications were made to the code like changing the colour values and adjusting the brightness of a color
-        */
+        
 
-        // Properties to hold the primary and secondary colors
+        // variables
         public static Color PrimaryColor { get; set; }
         public static Color SecondaryColor { get; set; }
 
@@ -28,7 +29,14 @@ namespace LibraryApp
             "#43B76E", "#7BCFE9", "#B71C46"
         };
 
-        // Method to adjust the brightness of a color
+        //******************************************************************************//
+        /// <summary>
+        /// Method to change the brightness of a color
+        /// </summary>
+        /// <param name="color"></param>
+        /// <param name="correctionFactor"></param>
+        /// <returns> a corrected color </returns>
+        //********************************************************************************//
         public static Color ChangeColorBrightness(Color color, double correctionFactor)
         {
             double red = color.R;
@@ -55,4 +63,4 @@ namespace LibraryApp
         }
     }
 }
-//----------------------------------End of File-------------------------------//
+//----------------------------------...ooo000 END OF FILE 000ooo...----------------------------------//

@@ -42,7 +42,7 @@ namespace LibraryApp
             listView2.AllowDrop = true;
 
             // Create a new ImageList with larger icons
-            ImageList largeImageList = new ImageList();
+            var largeImageList = new ImageList();
             largeImageList.ImageSize = new Size(64, 64);
             largeImageList.Images.Add(Properties.Resources.book);
 
@@ -70,13 +70,17 @@ namespace LibraryApp
             }
         }
 
-        // Event Handlers
-
-        // Handles the "Check" button click event
+        //**********************************************************************************************//
+        /// <summary>
+        /// Handles the click event for the check button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        //**********************************************************************************************//
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            List<string> sortedDeweyNumbers = randomizer.SortDeweyNumbers();
-            List<string> listView2Items = GetListViewItems(listView2);
+            var sortedDeweyNumbers = randomizer.SortDeweyNumbers();
+            var listView2Items = GetListViewItems(listView2);
 
             bool areListsSame = listView2Items.SequenceEqual(sortedDeweyNumbers);
 
@@ -99,7 +103,11 @@ namespace LibraryApp
             }
         }
 
-        // Unchecks the next checkbox when the order is incorrect
+        //**********************************************************************************************//
+        /// <summary>
+        /// Unchecks the next checkbox in the sequence
+        /// </summary>
+        //**********************************************************************************************//
         private void UncheckNextCheckbox()
         {
             if (cekboxlife3.Checked)
@@ -116,17 +124,29 @@ namespace LibraryApp
             }
         }
 
-        // Updates the timer display
+        //**********************************************************************************************//
+        /// <summary>
+        /// updates the timer display
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        //**********************************************************************************************//
         private void Timer1_Tick(object sender, EventArgs e)
         {
             elapsedSeconds++;
-            int minutes = elapsedSeconds / 60;
-            int seconds = elapsedSeconds % 60;
+            var minutes = elapsedSeconds / 60;
+            var seconds = elapsedSeconds % 60;
 
             lilTimer.Text = string.Format("{0:D2}:{1:D2}", minutes, seconds);
         }
 
-        // Handles the drag and drop operation for both list views
+        //**********************************************************************************************//
+        /// <summary>
+        /// Handles the DragDrop event for both list views
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        //**********************************************************************************************//
         private void ListView_DragDrop(object sender, DragEventArgs e)
         {
             System.Windows.Forms.ListView destinationListView = sender as System.Windows.Forms.ListView;
@@ -155,18 +175,27 @@ namespace LibraryApp
             }
         }
 
-        // Updates the progress bar based on correct items
+        //**********************************************************************************************//
+        /// <summary>
+        /// updates the progress bar
+        /// </summary>
+        //**********************************************************************************************//
         private void UpdateProgressBar()
         {
-            int progress = CalculateProgress();
+            var progress = CalculateProgress();
             progressBar1.Value = progress;
         }
 
-        // Calculates the progress based on correct items
+        //**********************************************************************************************//
+        /// <summary>
+        /// calculates the progress based on correct items
+        /// </summary>
+        /// <returns> Progress bar percentage</returns>
+        //**********************************************************************************************//
         private int CalculateProgress()
         {
-            List<string> sortedDeweyNumbers = randomizer.SortDeweyNumbers();
-            List<string> listView2Items = GetListViewItems(listView2);
+            var sortedDeweyNumbers = randomizer.SortDeweyNumbers();
+            var listView2Items = GetListViewItems(listView2);
 
             int correctItems = 0;
 
@@ -184,7 +213,13 @@ namespace LibraryApp
             return progress;
         }
 
-        // Retrieves the items from a ListView
+        //**********************************************************************************************//
+        /// <summary>
+        /// Retrieves the items from a ListView
+        /// </summary>
+        /// <param name="listView"></param>
+        /// <returns> Individual items from list view</returns>
+        //**********************************************************************************************//
         private List<string> GetListViewItems(ListView listView)
         {
             List<string> items = new List<string>();
@@ -197,17 +232,11 @@ namespace LibraryApp
             return items;
         }
 
-        // Populates a ListView with Dewey Decimal numbers
-        private void PopulateListView(System.Windows.Forms.ListView listView, List<string> deweyNumbers)
-        {
-            foreach (string deweyNumber in deweyNumbers)
-            {
-                ListViewItem item = new ListViewItem(deweyNumber, 0);
-                listView.Items.Add(item);
-            }
-        }
-
-        // Loads the theme for buttons
+        //**********************************************************************************************//
+        /// <summary>
+        /// loads the theme for buttons
+        /// </summary>
+        //**********************************************************************************************//
         private void LoadTheme()
         {
             foreach (Control btns in this.Controls)
@@ -222,32 +251,39 @@ namespace LibraryApp
             }
         }
 
-        // Checks if a ListView is sorted
-        private bool CheckIfListViewIsSorted(System.Windows.Forms.ListView listView)
-        {
-            for (int i = 0; i < listView.Items.Count - 1; i++)
-            {
-                if (string.Compare(listView.Items[i].Text, listView.Items[i + 1].Text) > 0)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
 
-        // Initiates a drag operation in listView1
+
+        //**********************************************************************************************//
+        /// <summary>
+        /// Initiates a drag operation in listView1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        //**********************************************************************************************//
         private void ListView_ItemDrag(object sender, ItemDragEventArgs e)
         {
             listView1.DoDragDrop(e.Item, DragDropEffects.Move);
         }
 
-        // Initiates a drag operation in listView2
+        //**********************************************************************************************//
+        /// <summary>
+        /// Initiates a drag operation in listView2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        //**********************************************************************************************//
         private void ListView_ItemDrag2(object sender, ItemDragEventArgs e)
         {
             listView2.DoDragDrop(e.Item, DragDropEffects.Move);
         }
 
-        // Handles the DragEnter event for both list views
+        //**********************************************************************************************//
+        /// <summary>
+        /// Handles the DragEnter event for both list views
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+       //**********************************************************************************************//
         private void ListView_DragEnter(object sender, DragEventArgs e)
         {
             // Check if the data format is supported
@@ -261,7 +297,11 @@ namespace LibraryApp
             }
         }
 
-        // Resets the game
+        //**********************************************************************************************//
+        /// <summary>
+        /// Resets the game
+        /// </summary>
+        //**********************************************************************************************// 
         private void ResetGame()
         {
             cekboxLife1.Checked = true;
@@ -277,17 +317,23 @@ namespace LibraryApp
 
             for (int i = 0; i < 10; i++)
             {
-                string randomDeweyDecimal = randomizer.GenerateRandomDeweyDecimal();
+                var randomDeweyDecimal = randomizer.GenerateRandomDeweyDecimal();
                 ListViewItem item = new ListViewItem(randomDeweyDecimal, 0);
                 listView1.Items.Add(item);
             }
         }
 
-        // Handles the click event for the reset button
+        //**********************************************************************************************//
+        /// <summary>
+        /// Handles the click event for the reset button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        //**********************************************************************************************//
         private void button1_Click(object sender, EventArgs e)
         {
             ResetGame();
         }
     }
 }
-//------------------------------------End of File----------------------------------//
+//------------------------------------...ooo000 End of File 000ooo...------------------------------------//

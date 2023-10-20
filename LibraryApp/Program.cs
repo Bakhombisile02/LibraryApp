@@ -18,7 +18,6 @@ namespace LibraryApp
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
-
-        
     }
 }
+//--------------------------...ooo000 END OF FILE 000ooo...--------------------------//
