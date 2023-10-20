@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DisabledScreen.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="DisabledScreen.Designer.cs">
-      <DependentUpon>DisabledScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,16 +59,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ReplacingBooks.cs">
+    <Compile Include="UserControls\DisabledScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ReplacingBooks.Designer.cs">
+    <Compile Include="UserControls\DisabledScreen.Designer.cs">
+      <DependentUpon>DisabledScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ReplacingBooks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ReplacingBooks.Designer.cs">
       <DependentUpon>ReplacingBooks.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThemeColor.cs" />
-    <EmbeddedResource Include="DisabledScreen.resx">
-      <DependentUpon>DisabledScreen.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,7 +79,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReplacingBooks.resx">
+    <EmbeddedResource Include="UserControls\DisabledScreen.resx">
+      <DependentUpon>DisabledScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ReplacingBooks.resx">
       <DependentUpon>ReplacingBooks.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -162,5 +161,6 @@
   <ItemGroup>
     <None Include="Resources\icons8-coming-soon-64.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

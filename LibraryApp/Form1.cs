@@ -12,14 +12,13 @@ using System.Runtime.InteropServices;
 
 namespace LibraryApp
 {
+    /// <summary>
+    /// This a portion of this code is based on a tutorial by [RJ Code Advance EN]
+    ///The original code can be found at[https://www.youtube.com/watch?v=BtOEztT1Qzk&t=888s]
+    ///Modifications were made to the code like changing the colours and themes
+    /// </summary>
     public partial class Form1 : Form
     {
-        /*
-        * This a portion of this code is based on a tutorial by [RJ Code Advance EN]
-        * The original code can be found at [https://www.youtube.com/watch?v=BtOEztT1Qzk&t=888s]
-        * Modifications were made to the code like changing the colours and themes
-        */
-
         // Variables
         private Button currentButton;
         private Random random;
@@ -43,12 +42,7 @@ namespace LibraryApp
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
-        // PInvoke declarations for moving the form without a title bar
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
+        
         // Button Click Event Handlers
 
         private void btnReplaceBooks_Click(object sender, EventArgs e)
@@ -72,9 +66,12 @@ namespace LibraryApp
             OpenChildUserControl(DS);
         }
 
-        // Helper Methods
-
-        // Select a random theme color
+        //**********************************************************************************************//
+        /// <summary>
+        /// select a random theme color from the list of colors
+        /// </summary>
+        /// <returns> the color </returns>
+        //**********************************************************************************************//
         private Color SelectThemeColor()
         {
             int index = random.Next(ThemeColor.ColorList.Count);
@@ -87,7 +84,12 @@ namespace LibraryApp
             return ColorTranslator.FromHtml(color);
         }
 
-        // Activate a button by changing its appearance and theme color
+        //**********************************************************************************************//
+        /// <summary>
+        /// Activate a button by changing its appearance and theme color
+        /// </summary>
+        /// <param name="btnSender"></param>
+        //**********************************************************************************************//
         private void ActivateButton(object btnSender)
         {
             if (btnSender != null)
@@ -96,7 +98,7 @@ namespace LibraryApp
                 {
                     DisableButton();
                     Color color = SelectThemeColor();
-                    currentButton = (Button)btnSender;
+                    this.currentButton = (Button)btnSender;
                     currentButton.BackColor = color;
                     currentButton.ForeColor = Color.White;
                     currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -108,7 +110,11 @@ namespace LibraryApp
             }
         }
 
-        // Disable all buttons in the panel menu
+        //**********************************************************************************************//
+        /// <summary>
+        /// Disable all buttons in the panel menu
+        /// </summary>
+        //**********************************************************************************************//
         private void DisableButton()
         {
             foreach (Control previousBtn in panelMenu.Controls)
@@ -122,7 +128,12 @@ namespace LibraryApp
             }
         }
 
-        // Open the corresponding child form in the panel content
+        //**********************************************************************************************//
+        /// <summary>
+        /// open the user control in the panel content
+        /// </summary>
+        /// <param name="userControl"></param>
+        //**********************************************************************************************//
         private void OpenChildUserControl(UserControl userControl)
         {
             panelContent.Controls.Clear();
@@ -136,4 +147,4 @@ namespace LibraryApp
 
     }
 }
-//--------------------------------------End of File----------------------------------------//
+//--------------------------------------...ooo000 End of File 000ooo...--------------------------------------//
