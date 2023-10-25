@@ -55,8 +55,8 @@ namespace LibraryApp
         private void btnIdentifiyingArea_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            DisabledScreen DS = new DisabledScreen();
-            OpenChildUserControl(DS);
+            IdAreasScreen IA = new IdAreasScreen();
+            OpenChildUserControl(IA);
         }
 
         private void btnfindCallnumbers_Click(object sender, EventArgs e)

@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DeweyDecLibrary;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LibraryApp
 {
     public partial class DisabledScreen : UserControl
     {
+        private IdAreas idAreas = new IdAreas();
         public DisabledScreen()
         {
             InitializeComponent();
         }
+        
     }
 }
