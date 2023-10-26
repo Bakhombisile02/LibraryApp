@@ -1,7 +1,10 @@
 ﻿using DeweyDecLibrary;
+using LibraryApp.Properties;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Windows.Forms;
 
 namespace LibraryApp
@@ -9,6 +12,7 @@ namespace LibraryApp
     public partial class IdAreasScreen : UserControl
     {
         private IdAreas idAreas = new IdAreas();
+        SoundPlayer sound = new SoundPlayer(Properties.Resources.Music);
         private Dictionary<string, string> categorizedNumbers;
         private List<string> questions;
         private List<List<string>> options;
@@ -18,6 +22,8 @@ namespace LibraryApp
         public IdAreasScreen()
         {
             InitializeComponent();
+           sound.PlayLooping();
+            LoadTheme();
 
             // Populate Dewey Decimal numbers
             for (int i = 0; i < 4; i++)
@@ -42,16 +48,14 @@ namespace LibraryApp
             DisplayQuestionsAndOptions();
         }
 
-
-
         private void DisplayQuestionsAndOptions()
         {
             if (currentQuestionIndex < questions.Count)
             {
-                lblQ1.Text = $"What Dewey Decimal number falls under the {questions[currentQuestionIndex]} category?";
-                lblQ2.Text = $"What Dewey Decimal number falls under the {questions[currentQuestionIndex + 1]} category?";
-                lblQ3.Text = $"What Dewey Decimal number falls under the {questions[currentQuestionIndex + 2]} category?";
-                lblQ4.Text = $"What Dewey Decimal number falls under the {questions[currentQuestionIndex + 3]} category?";
+                lblQ1.Text = $"What number falls under the {questions[currentQuestionIndex]} category?";
+                lblQ2.Text = $"What number falls under the {questions[currentQuestionIndex + 1]} category?";
+                lblQ3.Text = $"What number falls under the {questions[currentQuestionIndex + 2]} category?";
+                lblQ4.Text = $"What number falls under the {questions[currentQuestionIndex + 3]} category?";
 
                 // Display options for each question
                 for (int i = 0; i < 4; i++)
@@ -59,9 +63,9 @@ namespace LibraryApp
                     var optionsForQuestion = options[currentQuestionIndex + i];
                     var checkedListBox = Controls.Find($"checkedListBox{i + 1}", true)[0] as CheckedListBox;
 
-                   
 
-                   
+
+
                     checkedListBox.Items.Clear();
                     foreach (var option in optionsForQuestion)
                     {
@@ -73,6 +77,20 @@ namespace LibraryApp
             {
                 // Quiz finished, handle end of game logic here
                 MessageBox.Show("Quiz finished!");
+            }
+        }
+
+        private void LoadTheme()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                }
             }
         }
 
@@ -130,6 +148,11 @@ namespace LibraryApp
                 Logger.WriteLog($"An error occurred while submitting answers: {ex.Message}");
 
             }
+        }
+
+        private void hintsBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

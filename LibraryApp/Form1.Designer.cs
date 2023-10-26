@@ -30,22 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnfindCallnumbers = new System.Windows.Forms.Button();
+            this.btnIdentifiyingArea = new System.Windows.Forms.Button();
+            this.btnReplaceBooks = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelTitlebar = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelContent = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnfindCallnumbers = new System.Windows.Forms.Button();
-            this.btnIdentifiyingArea = new System.Windows.Forms.Button();
-            this.btnReplaceBooks = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelTitlebar.SuspendLayout();
             this.panelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -59,67 +59,19 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(6);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(400, 865);
+            this.panelMenu.Size = new System.Drawing.Size(200, 735);
             this.panelMenu.TabIndex = 0;
             // 
-            // panelLogo
+            // label1
             // 
-            this.panelLogo.BackColor = System.Drawing.Color.SkyBlue;
-            this.panelLogo.Controls.Add(this.pictureBox2);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(6);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(400, 138);
-            this.panelLogo.TabIndex = 0;
-            // 
-            // panelTitlebar
-            // 
-            this.panelTitlebar.BackColor = System.Drawing.Color.SkyBlue;
-            this.panelTitlebar.Controls.Add(this.lblTitle);
-            this.panelTitlebar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitlebar.Location = new System.Drawing.Point(400, 0);
-            this.panelTitlebar.Margin = new System.Windows.Forms.Padding(6);
-            this.panelTitlebar.Name = "panelTitlebar";
-            this.panelTitlebar.Size = new System.Drawing.Size(1235, 138);
-            this.panelTitlebar.TabIndex = 1;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTitle.Location = new System.Drawing.Point(517, 37);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(185, 37);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Home Page";
-            // 
-            // panelContent
-            // 
-            this.panelContent.Controls.Add(this.pictureBox1);
-            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelContent.Location = new System.Drawing.Point(400, 138);
-            this.panelContent.Margin = new System.Windows.Forms.Padding(6);
-            this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1235, 727);
-            this.panelContent.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::LibraryApp.Properties.Resources.Rlogo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1235, 727);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(116, 278);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "label1";
             // 
             // btnfindCallnumbers
             // 
@@ -129,11 +81,10 @@
             this.btnfindCallnumbers.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnfindCallnumbers.Image = global::LibraryApp.Properties.Resources.icons8_barcode_scanner_64;
             this.btnfindCallnumbers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnfindCallnumbers.Location = new System.Drawing.Point(0, 450);
-            this.btnfindCallnumbers.Margin = new System.Windows.Forms.Padding(6);
+            this.btnfindCallnumbers.Location = new System.Drawing.Point(0, 234);
             this.btnfindCallnumbers.Name = "btnfindCallnumbers";
-            this.btnfindCallnumbers.Padding = new System.Windows.Forms.Padding(24, 0, 0, 0);
-            this.btnfindCallnumbers.Size = new System.Drawing.Size(400, 162);
+            this.btnfindCallnumbers.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnfindCallnumbers.Size = new System.Drawing.Size(200, 84);
             this.btnfindCallnumbers.TabIndex = 3;
             this.btnfindCallnumbers.Text = "Find Call numbers";
             this.btnfindCallnumbers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -149,11 +100,10 @@
             this.btnIdentifiyingArea.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnIdentifiyingArea.Image = global::LibraryApp.Properties.Resources.icons8_search_64;
             this.btnIdentifiyingArea.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIdentifiyingArea.Location = new System.Drawing.Point(0, 300);
-            this.btnIdentifiyingArea.Margin = new System.Windows.Forms.Padding(6);
+            this.btnIdentifiyingArea.Location = new System.Drawing.Point(0, 156);
             this.btnIdentifiyingArea.Name = "btnIdentifiyingArea";
-            this.btnIdentifiyingArea.Padding = new System.Windows.Forms.Padding(24, 0, 0, 0);
-            this.btnIdentifiyingArea.Size = new System.Drawing.Size(400, 150);
+            this.btnIdentifiyingArea.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnIdentifiyingArea.Size = new System.Drawing.Size(200, 78);
             this.btnIdentifiyingArea.TabIndex = 2;
             this.btnIdentifiyingArea.Text = "   Identifiying Areas";
             this.btnIdentifiyingArea.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -169,11 +119,10 @@
             this.btnReplaceBooks.ForeColor = System.Drawing.SystemColors.Control;
             this.btnReplaceBooks.Image = global::LibraryApp.Properties.Resources.icons8_books_64;
             this.btnReplaceBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReplaceBooks.Location = new System.Drawing.Point(0, 138);
-            this.btnReplaceBooks.Margin = new System.Windows.Forms.Padding(6);
+            this.btnReplaceBooks.Location = new System.Drawing.Point(0, 72);
             this.btnReplaceBooks.Name = "btnReplaceBooks";
-            this.btnReplaceBooks.Padding = new System.Windows.Forms.Padding(24, 0, 0, 0);
-            this.btnReplaceBooks.Size = new System.Drawing.Size(400, 162);
+            this.btnReplaceBooks.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnReplaceBooks.Size = new System.Drawing.Size(200, 84);
             this.btnReplaceBooks.TabIndex = 1;
             this.btnReplaceBooks.Text = "   Replace books";
             this.btnReplaceBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -181,49 +130,96 @@
             this.btnReplaceBooks.UseVisualStyleBackColor = true;
             this.btnReplaceBooks.Click += new System.EventHandler(this.btnReplaceBooks_Click);
             // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.SkyBlue;
+            this.panelLogo.Controls.Add(this.pictureBox2);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(200, 72);
+            this.panelLogo.TabIndex = 0;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::LibraryApp.Properties.Resources.Rlogo1;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(400, 138);
+            this.pictureBox2.Size = new System.Drawing.Size(200, 72);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // label1
+            // panelTitlebar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(231, 535);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
+            this.panelTitlebar.BackColor = System.Drawing.Color.SkyBlue;
+            this.panelTitlebar.Controls.Add(this.lblTitle);
+            this.panelTitlebar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitlebar.Location = new System.Drawing.Point(200, 0);
+            this.panelTitlebar.Name = "panelTitlebar";
+            this.panelTitlebar.Size = new System.Drawing.Size(1078, 72);
+            this.panelTitlebar.TabIndex = 1;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblTitle.Location = new System.Drawing.Point(488, 19);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(185, 37);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Home Page";
+            // 
+            // panelContent
+            // 
+            this.panelContent.Controls.Add(this.pictureBox1);
+            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelContent.Location = new System.Drawing.Point(200, 72);
+            this.panelContent.Name = "panelContent";
+            this.panelContent.Size = new System.Drawing.Size(1078, 663);
+            this.panelContent.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::LibraryApp.Properties.Resources.Rlogo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1078, 663);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1635, 865);
+            this.ClientSize = new System.Drawing.Size(1278, 735);
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.panelTitlebar);
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1644, 936);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(1304, 806);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelTitlebar.ResumeLayout(false);
             this.panelTitlebar.PerformLayout();
             this.panelContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
