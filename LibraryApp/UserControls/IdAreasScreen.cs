@@ -10,7 +10,8 @@ using System.Windows.Forms;
 namespace LibraryApp
 {
     /// <summary>
-    /// 
+    /// screen for the Identifying Areas game
+    /// some of these functions were assisted by chatgpt such as the check1 and check2 functions
     /// </summary>
     public partial class IdAreasScreen : UserControl
     {
@@ -333,10 +334,10 @@ namespace LibraryApp
                     for (int i = 1; i <= 4; i++)
                     {
                         var checkedListBox = Controls.Find($"checkedListBox{i}", true)[0] as CheckedListBox;
-                        string selectedOption = checkedListBox.CheckedItems[0].ToString();
+                        var selectedOption = checkedListBox.CheckedItems[0].ToString();
 
                         // Check if the selected option is correct
-                        string correctOption = idAreas.CategorizedNumbers[questions[currentQuestionIndex + i - 1]];
+                        var correctOption = idAreas.CategorizedNumbers[questions[currentQuestionIndex + i - 1]];
                         if (selectedOption == correctOption)
                         {
                             MessageBox.Show($"Question {i} is correct!");
