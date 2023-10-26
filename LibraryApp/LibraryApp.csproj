@@ -54,10 +54,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="IdAreasScreen.cs">
+    <Compile Include="UserControls\IdAreasScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="IdAreasScreen.Designer.cs">
+    <Compile Include="UserControls\IdAreasScreen.Designer.cs">
       <DependentUpon>IdAreasScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -82,7 +82,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IdAreasScreen.resx">
+    <EmbeddedResource Include="UserControls\IdAreasScreen.resx">
       <DependentUpon>IdAreasScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -173,7 +173,6 @@
     <None Include="Resources\icons8-coming-soon-64.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Music.wav" />
     <None Include="Resources\Music.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

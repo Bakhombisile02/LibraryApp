@@ -17,6 +17,36 @@ namespace DeweyDecLibrary
         private Dictionary<string, string> DeweyDictionary;
         private Dictionary<string, string> categorizedNumbers;
 
+        Dictionary<(int, int), string> sections = new Dictionary<(int, int), string>
+            {
+                {(000, 099), "Geology"},
+                {(100, 199), "Biology"},
+                {(200, 299), "Chemistry"},
+                {(300, 399), "Physics"},
+                {(400, 499), "Mathematics"},
+                {(500, 599), "Technology"},
+                {(600, 699), "Medicine"},
+                {(700, 799), "Arts"},
+                {(800, 899), "Literature"},
+                {(900, 999), "History"},
+                // Add more sections as needed
+            };
+
+        Dictionary<(int, int), string> subsections = new Dictionary<(int, int), string>
+            {
+                {(0, 9), "General"},
+                {(10, 19), "System Overview"},
+                {(20, 29), "Processes"},
+                {(30, 39), "Methods"},
+                {(40, 49), "Applications"},
+                {(50, 59), "Techniques"},
+                {(60, 69), "Tools"},
+                {(70, 79), "Materials"},
+                {(80, 89), "Principles"},
+                {(90, 99), "Miscellaneous"},
+                // Add more subsections as needed
+            };
+
         //getters and setters
         public HashSet<string> DeweyNumbers1 { get => DeweyNumbers; set => DeweyNumbers = value; }
         public Dictionary<string, string> DeweyDictionary1 { get => DeweyDictionary; set => DeweyDictionary = value; }
@@ -94,35 +124,6 @@ namespace DeweyDecLibrary
             try
             {
                 CategorizedNumbers.Clear(); // Clear the dictionary
-                Dictionary<(int, int), string> sections = new Dictionary<(int, int), string>
-            {
-                {(000, 099), "Geology"},
-                {(100, 199), "Biology"},
-                {(200, 299), "Chemistry"},
-                {(300, 399), "Physics"},
-                {(400, 499), "Mathematics"},
-                {(500, 599), "Technology"},
-                {(600, 699), "Medicine"},
-                {(700, 799), "Arts"},
-                {(800, 899), "Literature"},
-                {(900, 999), "History"},
-                // Add more sections as needed
-            };
-
-                Dictionary<(int, int), string> subsections = new Dictionary<(int, int), string>
-            {
-                {(0, 9), "General"},
-                {(10, 19), "System Overview"},
-                {(20, 29), "Processes"},
-                {(30, 39), "Methods"},
-                {(40, 49), "Applications"},
-                {(50, 59), "Techniques"},
-                {(60, 69), "Tools"},
-                {(70, 79), "Materials"},
-                {(80, 89), "Principles"},
-                {(90, 99), "Miscellaneous"},
-                // Add more subsections as needed
-            };
 
                 foreach (string dewey in deweyNumbers)
                 {
@@ -130,8 +131,8 @@ namespace DeweyDecLibrary
                     var classNumber = int.Parse(deweyParts[0].Split('.')[0]);
                     var divisionNumber = int.Parse(deweyParts[0].Split('.')[1]);
 
-                    string sectionName = GetCategoryName(classNumber, sections);
-                    string subsectionName = GetCategoryName(divisionNumber, subsections);
+                    var sectionName = GetCategoryName(classNumber, sections);
+                    var subsectionName = GetCategoryName(divisionNumber, subsections);
 
                     if (sectionName != null && subsectionName != null)
                     {
@@ -169,7 +170,7 @@ namespace DeweyDecLibrary
 
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         /// <summary>
-        /// get random wrong options for the user to select from
+        /// get random wrong call number(Dewey Decimal) options for the user to select from
         /// </summary>
         /// <param name="correctOption"></param>
         /// <returns></returns>
@@ -198,7 +199,12 @@ namespace DeweyDecLibrary
 
             return options;
         }
-
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+        /// <summary>
+        /// get random wrong category(Sections and subsections) options for the user to select from
+        /// </summary>
+        /// <param name="correctOption"></param>
+        /// <returns></returns>
         public List<string> GetRandomOptions2(string correctOption)
         {
             List<string> options = new List<string>();
@@ -224,40 +230,16 @@ namespace DeweyDecLibrary
 
             return options;
         }
-
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+        /// <summary>
+        /// get the correct category from Dewey Decimal thats parsed in
+        /// </summary>
+        /// <param name="deweyNumber"></param>
+        /// <returns></returns>
         public string GetCategoryFromDewey(string deweyNumber)
         {
             try
             {
-                Dictionary<(int, int), string> sections = new Dictionary<(int, int), string>
-        {
-            {(000, 099), "Geology"},
-            {(100, 199), "Biology"},
-            {(200, 299), "Chemistry"},
-            {(300, 399), "Physics"},
-            {(400, 499), "Mathematics"},
-            {(500, 599), "Technology"},
-            {(600, 699), "Medicine"},
-            {(700, 799), "Arts"},
-            {(800, 899), "Literature"},
-            {(900, 999), "History"},
-            // Add more sections as needed
-        };
-
-                Dictionary<(int, int), string> subsections = new Dictionary<(int, int), string>
-        {
-            {(0, 9), "General"},
-            {(10, 19), "System Overview"},
-            {(20, 29), "Processes"},
-            {(30, 39), "Methods"},
-            {(40, 49), "Applications"},
-            {(50, 59), "Techniques"},
-            {(60, 69), "Tools"},
-            {(70, 79), "Materials"},
-            {(80, 89), "Principles"},
-            {(90, 99), "Miscellaneous"},
-            // Add more subsections as needed
-        };
 
                 string[] deweyParts = deweyNumber.Split(' ');
                 var classNumber = int.Parse(deweyParts[0].Split('.')[0]);

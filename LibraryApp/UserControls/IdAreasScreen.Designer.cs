@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblQ2 = new System.Windows.Forms.Label();
             this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
@@ -43,6 +44,10 @@
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.lblQ1 = new System.Windows.Forms.Label();
             this.hintsBtn = new System.Windows.Forms.Button();
+            this.lilTimer = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblScore = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -200,10 +205,42 @@
             this.hintsBtn.UseVisualStyleBackColor = true;
             this.hintsBtn.Click += new System.EventHandler(this.hintsBtn_Click);
             // 
+            // lilTimer
+            // 
+            this.lilTimer.AutoSize = true;
+            this.lilTimer.BackColor = System.Drawing.Color.Transparent;
+            this.lilTimer.Location = new System.Drawing.Point(44, 24);
+            this.lilTimer.Name = "lilTimer";
+            this.lilTimer.Size = new System.Drawing.Size(34, 13);
+            this.lilTimer.TabIndex = 28;
+            this.lilTimer.Text = "00:00";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(106, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Score:";
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.ForeColor = System.Drawing.Color.Red;
+            this.lblScore.Location = new System.Drawing.Point(150, 24);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(13, 13);
+            this.lblScore.TabIndex = 30;
+            this.lblScore.Text = "0";
+            // 
             // IdAreasScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblScore);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lilTimer);
             this.Controls.Add(this.hintsBtn);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -243,5 +280,9 @@
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Label lblQ1;
         private System.Windows.Forms.Button hintsBtn;
+        private System.Windows.Forms.Label lilTimer;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblScore;
     }
 }
