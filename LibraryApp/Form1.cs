@@ -24,7 +24,9 @@ namespace LibraryApp
         private Random random;
         private int tempIndex;
 
-        // Constructor
+        /// <summary>
+        /// constructor
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
@@ -44,7 +46,6 @@ namespace LibraryApp
 
         
         // Button Click Event Handlers
-
         private void btnReplaceBooks_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
@@ -59,6 +60,7 @@ namespace LibraryApp
             OpenChildUserControl(IA);
         }
 
+
         private void btnfindCallnumbers_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
@@ -66,12 +68,11 @@ namespace LibraryApp
             OpenChildUserControl(DS);
         }
 
-        //**********************************************************************************************//
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         /// <summary>
         /// select a random theme color from the list of colors
         /// </summary>
         /// <returns> the color </returns>
-        //**********************************************************************************************//
         private Color SelectThemeColor()
         {
             int index = random.Next(ThemeColor.ColorList.Count);
@@ -84,12 +85,11 @@ namespace LibraryApp
             return ColorTranslator.FromHtml(color);
         }
 
-        //**********************************************************************************************//
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         /// <summary>
         /// Activate a button by changing its appearance and theme color
         /// </summary>
         /// <param name="btnSender"></param>
-        //**********************************************************************************************//
         private void ActivateButton(object btnSender)
         {
             if (btnSender != null)
@@ -110,11 +110,10 @@ namespace LibraryApp
             }
         }
 
-        //**********************************************************************************************//
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         /// <summary>
         /// Disable all buttons in the panel menu
         /// </summary>
-        //**********************************************************************************************//
         private void DisableButton()
         {
             foreach (Control previousBtn in panelMenu.Controls)
@@ -128,12 +127,11 @@ namespace LibraryApp
             }
         }
 
-        //**********************************************************************************************//
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         /// <summary>
         /// open the user control in the panel content
         /// </summary>
         /// <param name="userControl"></param>
-        //**********************************************************************************************//
         private void OpenChildUserControl(UserControl userControl)
         {
             panelContent.Controls.Clear();
@@ -147,4 +145,4 @@ namespace LibraryApp
 
     }
 }
-//--------------------------------------...ooo000 End of File 000ooo...--------------------------------------//
+/*- - - - - - - - - - - - - - - - - - - - - - ...ooo000 End of File 000ooo... - - - - - - - - - - - - - - - - - - - - - -*/

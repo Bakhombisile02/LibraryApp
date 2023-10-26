@@ -7,29 +7,36 @@ using System.Threading.Tasks;
 
 namespace DeweyDecLibrary
 {
+    /// <summary>
+    /// This class generates a random Dewey Decimal number and sorts a list of Dewey Decimal numbers.
+    /// </summary>
     public class CallNumberClass
     {
         // Variables
-        private Random random; 
-        private List<string> deweyNumbers; 
+        private Random random;
+        private HashSet<string> deweyHashSet;
+        private List<string> deweyNumbers;
 
         //Getters and Setters
         public List<string> DeweyNumbers { get => deweyNumbers; set => deweyNumbers = value; }
+        public HashSet<string> DeweyHashSet { get => deweyHashSet; set => deweyHashSet = value; }
 
-        // Constructor
+        /// <summary>
+        /// constructor for the CallNumberClass
+        /// </summary>
         public CallNumberClass()
         {
             random = new Random();
             DeweyNumbers = new List<string>();
+            DeweyHashSet = new HashSet<string>();
         }
 
-        //**********************************************************************************************//
+        /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
         /// <summary>
         /// method that generates a random Dewey Decimal number and adds it to the list
         /// </summary>
         /// <returns> returns a randomly generated Dewey number </returns>
         /// <example> 005.73 JAM </example>
-        //**********************************************************************************************//
         public string GenerateRandomDeweyDecimal()
         {
             try
@@ -42,7 +49,8 @@ namespace DeweyDecLibrary
                 var authorInitials = GenerateRandomInitials();
 
                 var deweyNumber = $"{classNumber:D3}.{divisionNumber:D1} {authorInitials}"; // Constructs a string of the Dewey Number
-                DeweyNumbers.Add(deweyNumber);
+                DeweyHashSet.Add(deweyNumber);
+                DeweyNumbers = DeweyHashSet.ToList();
 
                 return deweyNumber;
             }
@@ -73,12 +81,11 @@ namespace DeweyDecLibrary
             }
         }
 
-        //**********************************************************************************************//
+        /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
         /// <summary>
         /// This method sorts the Dewey Decimal numbers using a modified version of the QuickSort algorithm
         /// </summary>
         /// <returns> sorted list of Dewey Decimal number </returns>
-        //**********************************************************************************************//
         public List<string> SortDeweyNumbers()
         {
             try
@@ -93,14 +100,13 @@ namespace DeweyDecLibrary
             }
         }
 
-        //**********************************************************************************************//
+        /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
         /// <summary>
         /// Recursively performs Quick Sort on a list of Dewey Decimal numbers.
         /// </summary>
         /// <param name="deweyNumbers">The list of Dewey Decimal numbers to be sorted.</param>
         /// <param name="left">The left index of the subarray.</param>
         /// <param name="right">The right index of the subarray.</param>
-        //**********************************************************************************************//
         private void QuickSort(List<string> deweyNumbers, int left, int right)
         {
             if (left < right)
@@ -111,7 +117,7 @@ namespace DeweyDecLibrary
             }
         }
 
-        //**********************************************************************************************//
+        /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
         /// <summary>
         /// Partitions the list of Dewey Decimal numbers around a pivot.
         /// </summary>
@@ -119,7 +125,6 @@ namespace DeweyDecLibrary
         /// <param name="left">The left index of the subarray.</param>
         /// <param name="right">The right index of the subarray.</param>
         /// <returns>The index of the pivot after partitioning.</returns>
-        //**********************************************************************************************//
         private int Partition(List<string> deweyNumbers, int left, int right)
         {
             string pivotValue = deweyNumbers[right];
@@ -138,15 +143,13 @@ namespace DeweyDecLibrary
             return i + 1;
         }
 
-        //**********************************************************************************************//
+        /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
         /// <summary>
         /// Compares two Dewey Decimal numbers for sorting.
         /// </summary>
         /// <param name="x">The first Dewey Decimal number.</param>
         /// <param name="y">The second Dewey Decimal number.</param>
         /// <returns>A negative integer if x is less than y, zero if they are equal, and a positive integer if x is greater than y.</returns>
-        //**********************************************************************************************//
-
         private int CompareDeweyNumbers(string x, string y)
         {
             var componentsX = x.Split(' ', '.');
@@ -169,14 +172,13 @@ namespace DeweyDecLibrary
             return string.Compare(xAlpha, yAlpha);
         }
 
-        //**********************************************************************************************//
+        /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
         /// <summary>
         /// Swaps two elements in a list of Dewey Decimal numbers.
         /// </summary>
         /// <param name="deweyNumbers">The list of Dewey Decimal numbers.</param>
         /// <param name="i">The index of the first element to be swapped.</param>
         /// <param name="j">The index of the second element to be swapped.</param>
-        //**********************************************************************************************//
         private void Swap(List<string> deweyNumbers, int i, int j)
         {
             string temp = deweyNumbers[i];
@@ -186,4 +188,4 @@ namespace DeweyDecLibrary
        
     }
 }
-//------------------------------------------...ooo000 End of File 000ooo...----------------------------------------------------//
+/*- - - - - - - - - - - - - - - - - - - - - - ...ooo000 End of File 000ooo... - - - - - - - - - - - - - - - - - - - - - -*/

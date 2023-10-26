@@ -12,9 +12,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LibraryApp
 {
+    /// <summary>
+    /// DisabledScreen user control class
+    /// </summary>
     public partial class DisabledScreen : UserControl
     {
-        private IdAreas idAreas = new IdAreas();
+    
+        //constructor
         public DisabledScreen()
         {
             InitializeComponent();
@@ -22,3 +26,4 @@ namespace LibraryApp
         
     }
 }
+/*- - - - - - - - - - - - - - - - - - - - - - ...ooo000 End of File 000ooo... - - - - - - - - - - - - - - - - - - - - - -*/

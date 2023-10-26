@@ -31,7 +31,6 @@ namespace LibraryApp
             options = new List<List<string>>();
 
             // Populate options for each question
-            // Populate options for each question
             foreach (var deweyNumber in categorizedNumbers.Values)
             {
                 var optionsForQuestion = idAreas.GetRandomOptions(deweyNumber); // Get random options
@@ -77,44 +76,61 @@ namespace LibraryApp
             }
         }
 
-
+        /// <summary>
+        /// method to check if the user has selected an option for each question
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSubmit_Click_1(object sender, EventArgs e)
         {
-            // Check if at least one option is selected for each question
-            bool allQuestionsAnswered = true;
-            for (int i = 1; i <= 4; i++)
+            try
             {
-                var checkedListBox = Controls.Find($"checkedListBox{i}", true)[0] as CheckedListBox;
-                if (checkedListBox.CheckedItems.Count == 0)
-                {
-                    allQuestionsAnswered = false;
-                    MessageBox.Show($"Please select an option for Question {i}.");
-                    break;
-                }
-            }
-
-            if (allQuestionsAnswered)
-            {
-                // Check answers for each question
+                // Check if at least one option is selected for each question
+                bool allQuestionsAnswered = true;
                 for (int i = 1; i <= 4; i++)
                 {
                     var checkedListBox = Controls.Find($"checkedListBox{i}", true)[0] as CheckedListBox;
-                    string selectedOption = checkedListBox.CheckedItems[0].ToString();
-
-                    // Check if the selected option is correct
-                    string correctOption = categorizedNumbers[questions[currentQuestionIndex + i - 1]];
-                    if (selectedOption == correctOption)
+                    if (checkedListBox.CheckedItems.Count == 0)
                     {
-                        // Provide feedback to the user (you can implement this)
+                        allQuestionsAnswered = false;
+                        MessageBox.Show($"Please select an option for Question {i}.");
+                        break;
                     }
                 }
 
-                // Move to the next set of questions
-                currentQuestionIndex += 4;
+                if (allQuestionsAnswered)
+                {
+                    // Check answers for each question
+                    for (int i = 1; i <= 4; i++)
+                    {
+                        var checkedListBox = Controls.Find($"checkedListBox{i}", true)[0] as CheckedListBox;
+                        string selectedOption = checkedListBox.CheckedItems[0].ToString();
 
-                // Display the next set of questions and options
-                DisplayQuestionsAndOptions();
+                        // Check if the selected option is correct
+                        string correctOption = categorizedNumbers[questions[currentQuestionIndex + i - 1]];
+                        if (selectedOption == correctOption)
+                        {
+                            MessageBox.Show($"Question {i} is correct!");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Sorry, Question {i} is wrong. The correct answer is {correctOption}");
+                        }
+                    }
+
+                    // Move to the next set of questions
+                    currentQuestionIndex += 4;
+
+                    // Display the next set of questions and options
+                    DisplayQuestionsAndOptions();
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"An error occurred while submitting answers: {ex.Message}");
+
             }
         }
     }
 }
+/*- - - - - - - - - - - - - - - - - - - - - - ...ooo000 End of File 000ooo... - - - - - - - - - - - - - - - - - - - - - -*/

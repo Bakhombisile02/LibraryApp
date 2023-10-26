@@ -6,16 +6,24 @@ using System.Threading.Tasks;
 
 namespace DeweyDecLibrary
 {
+    /// <summary>
+    /// class that generates a random Dewey Decimal number and adds it to the list
+    /// </summary>
     public class IdAreas
     {
+        //variables
         private Random random;
         private HashSet<string> DeweyNumbers;
         private Dictionary<string, string> DeweyDictionary;
         private Dictionary<string, string> categorizedNumbers;
 
+        //getters and setters
         public HashSet<string> DeweyNumbers1 { get => DeweyNumbers; set => DeweyNumbers = value; }
         public Dictionary<string, string> DeweyDictionary1 { get => DeweyDictionary; set => DeweyDictionary = value; }
 
+        /// <summary>
+        /// constructor
+        /// </summary>
         public IdAreas()
         {
             random = new Random();
@@ -24,13 +32,12 @@ namespace DeweyDecLibrary
             categorizedNumbers = new Dictionary<string, string>(); // Initialize categorizedNumbers
         }
 
-        //**********************************************************************************************//
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         /// <summary>
         /// method that generates a random Dewey Decimal number and adds it to the list
         /// </summary>
         /// <returns> returns a randomly generated Dewey number </returns>
         /// <example> 005.73 JAM </example>
-        //**********************************************************************************************//
         public string GenerateRandomDeweyDecimal()
         {
             try
@@ -74,13 +81,13 @@ namespace DeweyDecLibrary
                 return null;
             }
         }
-        //**********************************************************************************************//
+
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         /// <summary>
         /// Creates a dictionary of Dewey Decimal numbers and their corresponding categories
         /// </summary>
         /// <param name="dewey"></param>
         /// <returns></returns>
-        //**********************************************************************************************//
         public Dictionary<string, string> CategorizeDeweyNumbers(HashSet<string> deweyNumbers)
         {
             try
@@ -115,8 +122,6 @@ namespace DeweyDecLibrary
                 // Add more subsections as needed
             };
 
-
-
                 foreach (string dewey in deweyNumbers)
                 {
                     string[] deweyParts = dewey.Split(' ');
@@ -141,8 +146,13 @@ namespace DeweyDecLibrary
             }
         }
 
-
-
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+        /// <summary>
+        /// get the correct category name
+        /// </summary>
+        /// <param name="category"></param>
+        /// <param name="categories"></param>
+        /// <returns></returns>
         private string GetCategoryName(int category, Dictionary<(int, int), string> categories)
         {
             foreach (var range in categories.Keys)
@@ -155,37 +165,12 @@ namespace DeweyDecLibrary
             return null;
         }
 
-        public void StartIdentifyingAreasGame()
-        {
-            try
-            {
-                // Generate questions and present to the user
-                foreach (var category in categorizedNumbers.Keys)
-                {
-                    var question = $"What Dewey Decimal number falls under the {category} category?";
-
-                    // Get options with one correct answer and three wrong answers
-                    var options = GetRandomOptions(categorizedNumbers[category]);
-
-                    // Display question and options to the user
-
-                    // User selects an option and submits their answer
-
-                    // Check if the selected option is correct
-
-                    // Provide feedback to the user
-
-                    // Update the score for gamification
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.WriteLog($"An error occurred while starting the Identifying Areas game: {ex.Message}");
-                // Handle any exceptions or errors
-            }
-        }
-
-
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+        /// <summary>
+        /// get random wrong options for the user to select from
+        /// </summary>
+        /// <param name="correctOption"></param>
+        /// <returns></returns>
         public List<string> GetRandomOptions(string correctOption)
         {
             List<string> options = new List<string>();
@@ -212,10 +197,6 @@ namespace DeweyDecLibrary
             return options;
         }
 
-
-
-
-
-
     }
 }
+/*- - - - - - - - - - - - - - - - - - - - - - ...ooo000 End of File 000ooo... - - - - - - - - - - - - - - - - - - - - - -*/
