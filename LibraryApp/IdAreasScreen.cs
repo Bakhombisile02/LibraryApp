@@ -92,10 +92,10 @@ namespace LibraryApp
 
             if (currentQuestionIndex < questions.Count)
             {
-                lblQ1.Text = $"What number falls under the {questions[currentQuestionIndex]} category?";
-                lblQ2.Text = $"What number falls under the {questions[currentQuestionIndex + 1]} category?";
-                lblQ3.Text = $"What number falls under the {questions[currentQuestionIndex + 2]} category?";
-                lblQ4.Text = $"What number falls under the {questions[currentQuestionIndex + 3]} category?";
+                lblQ1.Text = $"1. What number falls under the {questions[currentQuestionIndex]} category?";
+                lblQ2.Text = $"2. What number falls under the {questions[currentQuestionIndex + 1]} category?";
+                lblQ3.Text = $"3. What number falls under the {questions[currentQuestionIndex + 2]} category?";
+                lblQ4.Text = $"4. What number falls under the {questions[currentQuestionIndex + 3]} category?";
 
                 // Display options for each question
                 for (int i = 0; i < 4; i++)
@@ -130,10 +130,10 @@ namespace LibraryApp
 
             if (currentQuestionIndex < questions2.Count)
             {
-                lblQ1.Text = $"What Category does  {questions2[currentQuestionIndex]} fall under?";
-                lblQ2.Text = $"What Category does {questions2[currentQuestionIndex + 1]} fall under?";
-                lblQ3.Text = $"What Category does {questions2[currentQuestionIndex + 2]} fall under?";
-                lblQ4.Text = $"What Category does {questions2[currentQuestionIndex + 3]} fall under?";
+                lblQ1.Text = $"1. What Category does  {questions2[currentQuestionIndex]} fall under?";
+                lblQ2.Text = $"2. What Category does {questions2[currentQuestionIndex + 1]} fall under?";
+                lblQ3.Text = $"3. What Category does {questions2[currentQuestionIndex + 2]} fall under?";
+                lblQ4.Text = $"4. What Category does {questions2[currentQuestionIndex + 3]} fall under?";
 
                 // Display options for each question
                 for (int i = 0; i < 4; i++)
@@ -191,11 +191,12 @@ namespace LibraryApp
         {
             try
             {
-                // Check if at least one option is selected for each question
                 bool allQuestionsAnswered = true;
+
                 for (int i = 1; i <= 4; i++)
                 {
                     var checkedListBox = Controls.Find($"checkedListBox{i}", true)[0] as CheckedListBox;
+
                     if (checkedListBox.CheckedItems.Count == 0)
                     {
                         allQuestionsAnswered = false;
@@ -203,28 +204,32 @@ namespace LibraryApp
                         break;
                     }
                 }
+
                 if (allQuestionsAnswered)
                 {
                     for (int i = 1; i <= 4; i++)
                     {
                         var checkedListBox = Controls.Find($"checkedListBox{i}", true)[0] as CheckedListBox;
-                        string selectedOption = checkedListBox.CheckedItems[0].ToString();
+                        string selectedCategory = checkedListBox.CheckedItems[0].ToString();
 
-                        // Check if the selected option is correct
-                        string correctOption = idAreas.CategorizedNumbers[questions2[currentQuestionIndex + i - 1]];
-                        if (selectedOption == correctOption)
+                        string correctCategory = questions2[currentQuestionIndex + i - 1];
+
+
+                        string answer = idAreas.GetCategoryFromDewey(correctCategory);
+
+
+                        if (selectedCategory == answer)
                         {
                             MessageBox.Show($"Question {i} is correct!");
                         }
                         else
                         {
-                            MessageBox.Show($"Sorry, Question {i} is wrong. The correct answer is {correctOption}");
+                            MessageBox.Show($"Sorry, Question {i} is wrong. The correct answer is {answer}");
                         }
                     }
-                    // Move to the next set of questions
+
                     currentQuestionIndex += 4;
 
-                    // Randomly choose which set of questions to display
                     isDisplayingSet1 = random.Next(2) == 0;
 
                     if (isDisplayingSet1)
@@ -235,14 +240,17 @@ namespace LibraryApp
                     {
                         DisplayQuestionsAndOptions2();
                     }
-
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Logger.WriteLog($"An error occurred while submitting answers: {ex.Message}");
-            }   
+            }
         }
+
+
+
+
 
         public void check1()
         {
