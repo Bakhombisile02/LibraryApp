@@ -38,8 +38,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::LibraryApp.Properties.Resources.icons8_coming_soon_64;
             this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(1007, 623);
+            this.button1.Size = new System.Drawing.Size(837, 377);
             this.button1.TabIndex = 0;
             this.button1.Text = "Hang Tight we\'re still developing ;-)";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -47,11 +48,12 @@
             // 
             // DisabledScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DisabledScreen";
-            this.Size = new System.Drawing.Size(1007, 623);
+            this.Size = new System.Drawing.Size(837, 377);
             this.ResumeLayout(false);
 
         }
