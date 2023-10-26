@@ -56,7 +56,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblTitle.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(267, 0);
+            this.lblTitle.Location = new System.Drawing.Point(310, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(247, 56);
             this.lblTitle.TabIndex = 0;

@@ -20,6 +20,7 @@ namespace DeweyDecLibrary
         //getters and setters
         public HashSet<string> DeweyNumbers1 { get => DeweyNumbers; set => DeweyNumbers = value; }
         public Dictionary<string, string> DeweyDictionary1 { get => DeweyDictionary; set => DeweyDictionary = value; }
+        public Dictionary<string, string> CategorizedNumbers { get => categorizedNumbers; set => categorizedNumbers = value; }
 
         /// <summary>
         /// constructor
@@ -29,7 +30,7 @@ namespace DeweyDecLibrary
             random = new Random();
             DeweyNumbers1 = new HashSet<string>();
             DeweyDictionary1 = new Dictionary<string, string>();
-            categorizedNumbers = new Dictionary<string, string>(); // Initialize categorizedNumbers
+            CategorizedNumbers = new Dictionary<string, string>(); // Initialize categorizedNumbers
         }
 
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -92,6 +93,7 @@ namespace DeweyDecLibrary
         {
             try
             {
+                CategorizedNumbers.Clear(); // Clear the dictionary
                 Dictionary<(int, int), string> sections = new Dictionary<(int, int), string>
             {
                 {(000, 099), "Geology"},
@@ -134,10 +136,10 @@ namespace DeweyDecLibrary
                     if (sectionName != null && subsectionName != null)
                     {
                         string category = $"{sectionName}, {subsectionName}";
-                        categorizedNumbers.Add(category, dewey);
+                        CategorizedNumbers.Add(category, dewey);
                     }
                 }
-                return categorizedNumbers;
+                return CategorizedNumbers;
             }
             catch (Exception ex)
             {
@@ -176,7 +178,7 @@ namespace DeweyDecLibrary
             List<string> options = new List<string>();
 
             // Get other Dewey Decimal numbers (excluding the correct one)
-            var incorrectOptions = categorizedNumbers.Values
+            var incorrectOptions = CategorizedNumbers.Values
                 .Where(option => option != correctOption)
                 .ToList();
 
@@ -184,7 +186,33 @@ namespace DeweyDecLibrary
             var random = new Random();
             options.Add(correctOption); // Add the correct option first
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 6; i++)
+            {
+                var randomIncorrectOption = incorrectOptions[random.Next(incorrectOptions.Count)];
+                options.Add(randomIncorrectOption);
+                incorrectOptions.Remove(randomIncorrectOption); // Ensure no duplicates
+            }
+
+            // Shuffle the options to randomize their order
+            options = options.OrderBy(o => random.Next()).ToList();
+
+            return options;
+        }
+
+        public List<string> GetRandomOptions2(string correctOption)
+        {
+            List<string> options = new List<string>();
+
+            // Get other Dewey Decimal numbers (excluding the correct one)
+            var incorrectOptions = CategorizedNumbers.Keys
+                .Where(option => option != correctOption)
+                .ToList();
+
+            // Randomly select incorrect options
+            var random = new Random();
+            options.Add(correctOption); // Add the correct option first
+
+            for (int i = 0; i < 6; i++)
             {
                 var randomIncorrectOption = incorrectOptions[random.Next(incorrectOptions.Count)];
                 options.Add(randomIncorrectOption);
