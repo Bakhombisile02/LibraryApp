@@ -88,6 +88,8 @@ namespace LibraryApp
 
         private void DisplayQuestionsAndOptions()
         {
+            isDisplayingSet1 = true;
+
             if (currentQuestionIndex < questions.Count)
             {
                 lblQ1.Text = $"What number falls under the {questions[currentQuestionIndex]} category?";
@@ -124,6 +126,8 @@ namespace LibraryApp
         /// </summary>
         private void DisplayQuestionsAndOptions2()
         {
+            isDisplayingSet1 = false;
+
             if (currentQuestionIndex < questions2.Count)
             {
                 lblQ1.Text = $"What Category does  {questions2[currentQuestionIndex]} fall under?";
@@ -174,11 +178,78 @@ namespace LibraryApp
 
         private void btnSubmit_Click_1(object sender, EventArgs e)
         {
+            if (isDisplayingSet1 == true)
+            {
+                check1();
+            }
+            else if (isDisplayingSet1 == false)
+            {
+                check2();
+            }
+        }
+        public void check2()
+        {
             try
             {
-                bool allQuestionsAnswered = true;
-
                 // Check if at least one option is selected for each question
+                bool allQuestionsAnswered = true;
+                for (int i = 1; i <= 4; i++)
+                {
+                    var checkedListBox = Controls.Find($"checkedListBox{i}", true)[0] as CheckedListBox;
+                    if (checkedListBox.CheckedItems.Count == 0)
+                    {
+                        allQuestionsAnswered = false;
+                        MessageBox.Show($"Please select an option for Question {i}.");
+                        break;
+                    }
+                }
+                if (allQuestionsAnswered)
+                {
+                    for (int i = 1; i <= 4; i++)
+                    {
+                        var checkedListBox = Controls.Find($"checkedListBox{i}", true)[0] as CheckedListBox;
+                        string selectedOption = checkedListBox.CheckedItems[0].ToString();
+
+                        // Check if the selected option is correct
+                        string correctOption = idAreas.CategorizedNumbers[questions2[currentQuestionIndex + i - 1]];
+                        if (selectedOption == correctOption)
+                        {
+                            MessageBox.Show($"Question {i} is correct!");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Sorry, Question {i} is wrong. The correct answer is {correctOption}");
+                        }
+                    }
+                    // Move to the next set of questions
+                    currentQuestionIndex += 4;
+
+                    // Randomly choose which set of questions to display
+                    isDisplayingSet1 = random.Next(2) == 0;
+
+                    if (isDisplayingSet1)
+                    {
+                        DisplayQuestionsAndOptions();
+                    }
+                    else
+                    {
+                        DisplayQuestionsAndOptions2();
+                    }
+
+                }
+            }
+            catch(Exception ex)
+            {
+                Logger.WriteLog($"An error occurred while submitting answers: {ex.Message}");
+            }   
+        }
+
+        public void check1()
+        {
+            try
+            {
+                // Check if at least one option is selected for each question
+                bool allQuestionsAnswered = true;
                 for (int i = 1; i <= 4; i++)
                 {
                     var checkedListBox = Controls.Find($"checkedListBox{i}", true)[0] as CheckedListBox;
@@ -192,17 +263,14 @@ namespace LibraryApp
 
                 if (allQuestionsAnswered)
                 {
-                    // Check answers for the appropriate set of questions
-                    List<string> currentQuestions = isDisplayingSet1 ? questions : questions2;
-                    List<List<string>> currentOptions = isDisplayingSet1 ? options : options2;
-
+                    // Check answers for each question
                     for (int i = 1; i <= 4; i++)
                     {
                         var checkedListBox = Controls.Find($"checkedListBox{i}", true)[0] as CheckedListBox;
                         string selectedOption = checkedListBox.CheckedItems[0].ToString();
 
                         // Check if the selected option is correct
-                        string correctOption = idAreas.CategorizedNumbers[currentQuestions[currentQuestionIndex + i - 1]];
+                        string correctOption = idAreas.CategorizedNumbers[questions[currentQuestionIndex + i - 1]];
                         if (selectedOption == correctOption)
                         {
                             MessageBox.Show($"Question {i} is correct!");
@@ -216,7 +284,9 @@ namespace LibraryApp
                     // Move to the next set of questions
                     currentQuestionIndex += 4;
 
-                    // Display the next set of questions and options
+                    // Randomly choose which set of questions to display
+                    isDisplayingSet1 = random.Next(2) == 0;
+
                     if (isDisplayingSet1)
                     {
                         DisplayQuestionsAndOptions();
@@ -230,9 +300,9 @@ namespace LibraryApp
             catch (Exception ex)
             {
                 Logger.WriteLog($"An error occurred while submitting answers: {ex.Message}");
+
             }
         }
-
        
         private void hintsBtn_Click(object sender, EventArgs e)
         {
