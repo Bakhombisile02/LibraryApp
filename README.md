@@ -41,6 +41,7 @@ Librarians often need to sort call numbers in numerical and then alphabetical or
 # Experimentation with Data Structures and Algorithms
 
 - Import call numbers from the "Library.txt" file.
+- "Library.txt" file located in LibraryApp's bin > debug folder.
 - Experiment with data structures and algorithms, including quicksort and trees.
 
 # Coding Standards
