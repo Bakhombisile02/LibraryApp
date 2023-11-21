@@ -64,8 +64,8 @@ namespace LibraryApp
         private void btnfindCallnumbers_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            DisabledScreen DS = new DisabledScreen();
-            OpenChildUserControl(DS);
+            FindingCallNumber FCN = new FindingCallNumber();
+            OpenChildUserControl(FCN);
         }
 
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
