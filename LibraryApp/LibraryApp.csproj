@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UserControls\FindingCallNumber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FindingCallNumber.Designer.cs">
+      <DependentUpon>FindingCallNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     <Compile Include="UserControls\ReplacingBooks.Designer.cs">
       <DependentUpon>ReplacingBooks.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\FindingCallNumber.resx">
+      <DependentUpon>FindingCallNumber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

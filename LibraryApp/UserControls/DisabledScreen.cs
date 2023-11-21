@@ -17,11 +17,12 @@ namespace LibraryApp
     /// </summary>
     public partial class DisabledScreen : UserControl
     {
-    
+
         //constructor
         public DisabledScreen()
         {
             InitializeComponent();
+          
         }
         
     }
