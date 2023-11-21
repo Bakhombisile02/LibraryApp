@@ -18,13 +18,12 @@ namespace DeweyDecLibrary
         public string Name { get; }
         public List<TreeNode> Children { get; }
 
-        //******************************************************************************//
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
         /// <summary>
         /// 
         /// </summary>
         /// <param name="code"></param>
         /// <param name="name"></param>
-        //******************************************************************************//
         public TreeNode(string code, string name)
         {
             Code = code;
@@ -33,45 +32,33 @@ namespace DeweyDecLibrary
         }
 
 
-        //******************************************************************************//
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
         /// <summary>
         /// Method to add a child node to the tree
         /// </summary>
         /// <param name="childNode"></param>
-        //******************************************************************************//
         public void AddChild(TreeNode childNode)
         {
-            Children.Add(childNode);
-        }
-
-        //******************************************************************************//
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="level"></param>
-        //******************************************************************************//
-        public void DisplayTree(int level = 0)
-        {
-            StringBuilder treeString = new StringBuilder();
-            treeString.AppendLine($"{new string('-', level)} Code: {Code}, Name: {Name}");
-
-            foreach (var child in Children)
+            try
             {
-                treeString.AppendLine(child.GetTreeString(level + 1));
+                Children.Add(childNode);
             }
-
-            MessageBox.Show(treeString.ToString());
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding child node to tree. check log at C:\\log.txt", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Logger.WriteLog($"Error adding child node to tree: {ex.Message}");
+            }
         }
 
-        //******************************************************************************//
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
         /// <summary>
         /// 
         /// </summary>
         /// <param name="level"></param>
         /// <returns></returns>
-        //******************************************************************************//
         public string GetTreeString(int level)
         {
+            try { 
             StringBuilder treeString = new StringBuilder();
             treeString.AppendLine($"{new string('-', level)} Code: {Code}, Name: {Name}");
 
@@ -81,6 +68,40 @@ namespace DeweyDecLibrary
             }
 
             return treeString.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error getting tree string. check log at C:\\log.txt", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Logger.WriteLog($"Error getting tree string: {ex.Message}");
+                return null;
+            }
+        }
+
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+        /// <summary>
+        /// Recursive helper method to traverse the tree and collect codes and names.
+        /// </summary>
+        /// <param name="codes">List to store codes.</param>
+        /// <param name="names">List to store names.</param>
+        private void GetAllCodesAndNamesRecursive(List<string> codes, List<string> names)
+        {
+            try
+            {
+                // Add current node's code and name to the lists
+                codes.Add(Code);
+                names.Add(Name);
+
+                // Recursively traverse children
+                foreach (var child in Children)
+                {
+                    child.GetAllCodesAndNamesRecursive(codes, names);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error getting codes and names. check log at C:\\log.txt", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Logger.WriteLog($"Error getting codes and names: {ex.Message}");
+            }
         }
 
     }

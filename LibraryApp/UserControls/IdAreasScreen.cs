@@ -35,6 +35,7 @@ namespace LibraryApp
         public IdAreasScreen()
         {
             InitializeComponent();
+            MessageBox.Show("This application will automatically switch between call numbers and description tests");
             RunTime();
         }
 
