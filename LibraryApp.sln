@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp", "LibraryApp\Li
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeweyDecLibrary", "DeweyDecLibrary\DeweyDecLibrary.csproj", "{ABEA549A-3464-4776-9F94-2BEC50DF6B3D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackupLibrary", "BackupLibrary", "{1E19C085-D73D-47BB-8D6C-F64971B39A75}"
+	ProjectSection(SolutionItems) = preProject
+		LibraryApp\bin\Debug\Library.txt = LibraryApp\bin\Debug\Library.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -335,6 +335,7 @@ namespace LibraryApp
                         restartTimer();
                         RunTime();
                         progressBar1.Value = 0;
+                        btnSubmit.Visible = true;
 
                     }
                     else if (result == DialogResult.No)
@@ -361,6 +362,7 @@ namespace LibraryApp
                         restartTimer();
                         RunTime();
                         progressBar1.Value = 0;
+                        btnSubmit.Visible = true;
 
                     }
                     else if (result == DialogResult.No)
@@ -500,6 +502,7 @@ namespace LibraryApp
                         restartTimer();
                         RunTime();
                         progressBar1.Value = 0;
+                        btnSubmit.Visible = true;
 
                     }
                     else if (result == DialogResult.No)
@@ -525,6 +528,7 @@ namespace LibraryApp
                         restartTimer();
                         RunTime();
                         progressBar1.Value = 0;
+                        btnSubmit.Visible = true;
 
                     }
                     else if (result == DialogResult.No)
@@ -652,6 +656,9 @@ namespace LibraryApp
                 restartTimer();
                 RunTime();
                 progressBar1.Value = 0;
+                button1.Visible = false;
+                button2.Visible = false;
+                btnSubmit.Visible = true;
 
             }
             catch (Exception ex)
