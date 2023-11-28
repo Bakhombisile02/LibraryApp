@@ -3,23 +3,27 @@
 ## Table of Contents
 1. [Description](#description)
 2. [Features](#features)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Contributing](#contributing)
-6. [License](#license)
+3. [Experimentation with Data Structures and Algorithms](#experimentation-with-data-structures-and-algorithms)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [Contributing](#contributing)
+7. [License](#license)
 
-## Description
+# Description
 
-The LibraryApp is a training software designed to make learning about library systems engaging and enjoyable. Its primary objectives are to help users:
+The LibraryApp is an educational software designed to make learning about library systems engaging and enjoyable. Its primary objectives are to assist users in:
 
-- Identify the broad area to which a book belongs.
-- Find the call number for a specific topic.
-- Correctly replace a book in its designated position on a shelf.
+- Identifying the broad area to which a book belongs.
+- Finding the call number for a specific topic.
+- Correctly replacing a book in its designated position on a shelf.
 
 Librarians often need to sort call numbers in numerical and then alphabetical order when placing books on shelves. This software aims to facilitate this process.
 
-## Features
+# Features
 
+- **Finding Call Number Feature:**
+  - Navigate down the level of a tree using the Dewey Decimal System.
+  - Understand the fundamentals of trees through this interactive feature.
 - Categorize books into broad areas.
 - Generate call numbers for specific topics.
 - Simulate book placement on shelves for practice.
@@ -34,7 +38,19 @@ Librarians often need to sort call numbers in numerical and then alphabetical or
   - Score tracking to encourage progress and improvement.
   - Limited lives (3 attempts per session) for added challenge.
 
-## Installation
+# Experimentation with Data Structures and Algorithms
+
+- Import call numbers from the "Library.txt" file.
+- "Library.txt" file located in LibraryApp's bin > debug folder.
+- Experiment with data structures and algorithms, including quicksort and trees.
+
+# Coding Standards
+
+I've incorporated valuable feedback from my lecturer to enhance coding standards:
+- Utilized `var` for improved type inference.
+- Implemented XML comments for comprehensive code documentation.
+
+# Installation
 
 To install the LibraryApp, follow these steps:
 
@@ -42,14 +58,16 @@ To install the LibraryApp, follow these steps:
 2. Ensure you have Visual Studio installed on your Windows system.
 3. Run the .sln file to open the project.
 
-## Usage
+# Usage
 
 1. Launch the application.
-2. Choose the desired task, including the new "Identifying Areas Task".
+2. Choose the desired task, including the new "Finding Call Number Feature."
 3. Follow the on-screen instructions to start training modules.
 4. Use the provided tools to categorize books, find call numbers, and practice book placement.
+5. Quiz yourself with callnumbers in Identifying Areas Task
+6. Arrange books in Replace Books 
 
-## Contributing
+# Contributing
 
 If you'd like to contribute to the LibraryApp project, please follow these guidelines:
 
@@ -57,6 +75,6 @@ If you'd like to contribute to the LibraryApp project, please follow these guide
 2. Fork the repository and create a new branch for your contribution.
 3. Make your changes and submit a pull request for review.
 
-## License
+# License
 
 This project is licensed under the MIT License - go to [https://opensource.org/license/mit/](https://opensource.org/licenses/MIT) for details.
